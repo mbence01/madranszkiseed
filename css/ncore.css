@@ -1,0 +1,50 @@
+/*********************/
+.box_torrent_all{font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;font-size:10px;margin:0;padding:0}
+a{text-decoration:none}
+li{line-height:16px}
+a.menu_link{color:#5d5d5d}
+a.bb-url{color:#5d5d5d;text-decoration:underline}
+.box_torrent_all{background: rgba(0, 0, 0, 1); font-weight:700; margin: auto;}
+.box_meret_ownfree{width:87px}
+.box_nev{margin-left:20px;width:480px}
+.box_s_ownfree{width:52px}
+.box_l_ownfree{width:37px}
+.box_feltolto{color:#fff;margin-left:12px;width:55px}
+.box_profil_nev{margin-left:40px;width:264px}
+.box_profil_nev2{margin-left:40px;width:454px}
+.box_profil_arany{width:72px}
+.box_alap_img{float:left;margin-top:4px}
+.box_nagy a,.box_nagy2 a,.box_nagy_mini a{color:#a0a0a0;font-weight:400}
+.box_nagy2{background:url(https://static.ncore.pro/styles/dark/box_nagy2.png);float:left;height:32px;margin:4px 0 0 4px;width:844px}
+.box_nagy{background:url(https://static.ncore.pro/styles/dark/box_nagy.png);float:left;height:32px;margin:4px 0 0 4px;width:844px}
+.box_nagy_mini{background:url(https://static.ncore.pro/styles/dark/box_nagy.png);float:left;height:32px;margin:4px 0 0 4px;width:645px}
+.box_nev2{float:left;width:460px}
+.box_nev_mini{float:left;width:270px}
+.box_nev_mini2{float:left;margin-left:10px;width:449px}
+.box_nev_mini_ownfree{float:left;margin-left:10px;width:280px}
+.box_feltoltve2{color:#6f6f6f;float:left;font-weight:400;line-height:13px;margin-top:2px;text-align:center;width:83px}
+.box_feltoltve2_short{color:#6f6f6f;float:left;font-weight:400;margin-top:9px;text-align:center;width:87px}
+.box_feltoltve_other_short{color:#6f6f6f;float:left;font-weight:400;margin-top:5px;text-align:center;width:87px}
+.box_meret2{color:#6f6f6f;float:left;font-weight:400;margin-top:10px;text-align:center;width:84px}
+.box_d2,.box_s2{color:#6f6f6f;float:left;margin-top:10px;text-align:center;width:37px}
+.box_l2{color:#6f6f6f;float:left;margin-top:10px;text-align:center;width:36px}
+#profil_right .box_d2,#profil_right .box_s2,#profil_right .box_l2{width:48px}
+.box_feltolto2{color:#6f6f6f;float:left;margin-top:10px;text-align:center;width:83px}
+.box_profil_feltoltott2{color:#6f6f6f;float:left;margin-top:10px;text-align:center;width:63px}
+.box_profil_letoltott2{color:#6f6f6f;float:left;margin-top:10px;text-align:center;width:70px}
+.box_profil_arany2{color:#6f6f6f;float:left;margin-top:10px;text-align:center;width:65px}
+.tabla_szoveg{padding-left:5px}
+.torrent_txt{float:left;margin-top:3px;width:365px}
+.torrent_txt_mini{float:left;margin-top:4px;overflow:hidden;width:240px}
+.torrent_txt_also{color:#5D5D5D;font-weight:400;margin-top:2px}
+a.infolink:link,a.infolink:visited,a.infolink:active{color:#5D5D5D}
+.torrent_txt2{float:left;margin-top:10px;width:365px}
+.torrent_new{background:url(https://static.ncore.pro/styles/dark/ico_new.gif);float:right;height:13px;margin:10px 2px 0 0;width:13px}
+.torrent_new_link{height:13px}
+.torrent_gold{background:url(https://static.ncore.pro/styles/dark/ico_legal.png);float:right;height:13px;margin:10px 2px 0 0;width:13px}
+.torrent_hidden{background:url(https://static.ncore.pro/styles/dark/ico_hidden.gif);float:right;height:13px;margin:10px 2px 0 0;width:13px}
+.torrent_ok{background:url(https://static.ncore.pro/styles/dark/ico_ok.gif);float:right;height:13px;margin:10px 2px 0 0;width:13px}
+.torrent_unchecked{background:url(https://static.ncore.pro/styles/dark/ico_unchecked.gif);float:right;height:13px;margin:10px 2px 0 0;width:13px}
+.torrent_err{background:url(https://static.ncore.pro/styles/dark/ico_err.gif);float:right;height:13px;margin:10px 2px 0 0;width:13px}
+.torrent_konyvjelzo,.torrent_konyvjelzo2{background:url(https://static.ncore.pro/styles/dark/ico_bookmark.png);float:left;height:10px;margin:11px 5px 0 0;width:11px}
+.infobar{float:left;margin-right:5px}
