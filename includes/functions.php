@@ -1,5 +1,5 @@
 <?php
-    $mysqli = new mysqli("127.0.0.1", "seed", "Bence2001!09%06", "madranszkiseed");
+    $mysqli = new mysqli($_ENV["SEED_MYSQL_HOST"], $_ENV["SEED_MYSQL_USER"], $_ENV["SEED_MYSQL_PASSWORD"], $_ENV["SEED_MYSQL_DATABASE"]);
 
     date_default_timezone_set("Europe/Budapest");
 
