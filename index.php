@@ -41,6 +41,14 @@
 								<img src="img/main/icons/home.png" class="main-menu-ico">
 								<span>   Main page</span>
 							</a>
+                            <a href="index.php?page=upload" class="main-menu-a">
+                                <img src="img/main/icons/download.png" class="main-menu-ico">
+                                <span>   Upload torrent</span>
+                            </a>
+                            <a href="index.php?page=search" class="main-menu-a">
+                                <img src="img/main/icons/search.png" class="main-menu-ico">
+                                <span>   Search torrent</span>
+                            </a>
 							<a href="index/statistics.php" class="main-menu-a">
 								<img src="img/main/icons/statistics.png" class="main-menu-ico">
 								<span>   Statistics</span>
@@ -48,10 +56,6 @@
 							<a href="index/mydownloads.php" class="main-menu-a">
 								<img src="img/main/icons/list.png" class="main-menu-ico">
 								<span>   My downloads</span>
-							</a>
-							<a href="index/newdownload.php" class="main-menu-a">
-								<img src="img/main/icons/download.png" class="main-menu-ico">
-								<span>   New download</span>
 							</a>
 							<a href="index/profile.php" class="main-menu-a">
 								<img src="img/main/icons/profile.png" class="main-menu-ico">
@@ -64,6 +68,23 @@
 						</nav>
 					</div>
 					<div class="col-xs-9 main-div">
+                        <?php
+
+                        $page = "";
+
+                        switch($_GET["page"]) {
+                            case "upload":
+                                $page = "index/upload.php";
+                                break;
+
+                            case "search":
+                                $page = "index/search.php";
+                                break;
+                        }
+
+                        include_once($page);
+
+                        ?>
 					</div>
 				</div>
 			</div>

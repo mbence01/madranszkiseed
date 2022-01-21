@@ -4,7 +4,6 @@
     error_reporting(E_ALL);
     session_start();
 
-    $mysqli = new mysqli("127.0.0.1", "seed", "Bence2001!09%06", "madranszkiseed");
     include("../includes/functions.php");
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -22,7 +21,7 @@
                                    '".$_POST["user_reg"]."', 
                                    '".md5($_POST["pass_reg"])."', 
                                    '".$_POST["email"]."', 
-                                   '".getDay()."',
+                                   CURRENT_TIMESTAMP,
                                    'unknown')";
                     $q = $mysqli->query($query);
                     $_SESSION["new_reg"] = md5(true);

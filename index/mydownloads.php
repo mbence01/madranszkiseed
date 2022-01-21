@@ -11,7 +11,7 @@
     <head>
         <link rel="stylesheet" href="../css/bootstrap.css" />
         <link rel="stylesheet" href="../css/main.css" />
-		<link rel="stylesheet" href="../css/downloads.css" />
+		<link rel="stylesheet" href="../css/upload-search.css" />
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="text/javascript" src="../js/script.js"></script>
@@ -50,7 +50,7 @@
 								<img src="../img/main/icons/list.png" class="main-menu-ico">
 								<span>   My downloads</span>
 							</a>
-							<a href="newdownload.php" class="main-menu-a">
+							<a href="upload.php" class="main-menu-a">
 								<img src="../img/main/icons/download.png" class="main-menu-ico">
 								<span>   New download</span>
 							</a>
