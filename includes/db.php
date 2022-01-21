@@ -1,5 +1,5 @@
 <?php
-    $mysqli = new mysqli("localhost", "pmauser", ",_q!QL[cwQ69RQ", "madranszkiseed");
+    $mysqli = new mysqli($_ENV["SEED_MYSQL_HOST"], $_ENV["SEED_MYSQL_USER"], $_ENV["SEED_MYSQL_PASSWORD"], $_ENV["SEED_MYSQL_DATABASE"]);
 
     if($mysqli->connect_errno) {
         exit();
