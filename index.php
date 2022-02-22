@@ -53,7 +53,7 @@
 								<img src="img/main/icons/statistics.png" class="main-menu-ico">
 								<span>   Statistics</span>
 							</a>
-							<a href="index/mydownloads.php" class="main-menu-a">
+							<a href="index.php?page=downloads" class="main-menu-a">
 								<img src="img/main/icons/list.png" class="main-menu-ico">
 								<span>   My downloads</span>
 							</a>
@@ -79,6 +79,10 @@
 
                             case "search":
                                 $page = "index/search.php";
+                                break;
+
+                            case "downloads":
+                                $page = "index/mydownloads.php";
                                 break;
                         }
 
