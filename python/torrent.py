@@ -53,13 +53,13 @@ for item in login_credentials.values():
 
 #defs
 def getTorrentName(text):
-    first_pos = text.find('torrent_reszletek_cim') + 21
+    first_pos = text.find('torrent_reszletek_cim') + 23
     end_pos   = text.find('</div>', first_pos)
     return text[first_pos:end_pos:]
 
 def getTorrentType(text):
     first_pos   = text.find('torrents.php?tipus=') + 19
-    end_pos     = text.find('</a>', first_pos)
+    end_pos     = text.find('">', first_pos)
 
     type = text[first_pos:end_pos:]
 
@@ -132,13 +132,12 @@ def downloadTorrent(session):
     with open(torrent_id + '.torrent', 'wb') as torrent_file:
         torrent_file.write(get_torrent.content)
 
-    # Get the torrent file's type
+    # Get the torrent file's type and name, then print it
     type = getTorrentType(details_text)
     tname = getTorrentName(details_text)
 
-
-    # Exec torrent handler script
-    os.system('python3 handletorrent.py -u ' + args.USER + ' -t ' + type + ' -f ' + torrent_id + '.torrent -d ' + tname)
+    print('FILETYPE', type)
+    print('TORRENTNAME', tname)
 
 #main
 with requests.Session() as session:
