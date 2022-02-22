@@ -1,10 +1,10 @@
 <?php
     $MYSQL_HOST     = getenv("SEED_MYSQL_HOST");
     $MYSQL_USER     = getenv("SEED_MYSQL_USER");
-    $MYSQL_PASS     = getenv("SEED_MYSQL_PASS");
+    $MYSQL_PASS     = getenv("SEED_MYSQL_PASSWORD");
     $MYSQL_DATABASE = getenv("SEED_MYSQL_DATABASE");
 
-    $mysqli = new mysqli($MYSQL_HOST, $MYSQL_USER, "mB!2001!09!06", $MYSQL_DATABASE);
+    $mysqli = new mysqli($MYSQL_HOST, $MYSQL_USER, $MYSQL_PASS, $MYSQL_DATABASE);
 
     date_default_timezone_set("Europe/Budapest");
 
