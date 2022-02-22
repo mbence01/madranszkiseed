@@ -21,11 +21,16 @@ A program megfelelő működéséhez szükséges további programok:
    
 
 >  sudo apt-get update
->     sudo apt-get install transmission-cli python3 screen php-mysqli 
->     sudo apt-get install apache2 mysql-server
+
+>  sudo apt-get install transmission-cli python3 screen php-mysqli 
+
+>  sudo apt-get install apache2 mysql-server
 
 mysql-server telepítés [ITT](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04)
+
 apache telepítés [ITT](https://ubuntu.com/tutorials/install-and-configure-apache#1-overview)
+
+
 
 Az exportált adatbázis fájl megtalálható a gyökérmappában: db.sql
 
