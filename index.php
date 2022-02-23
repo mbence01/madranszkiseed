@@ -49,7 +49,7 @@
                                 <img src="img/main/icons/search.png" class="main-menu-ico">
                                 <span>   Search torrent</span>
                             </a>
-							<a href="index/statistics.php" class="main-menu-a">
+							<a href="#" class="main-menu-a">
 								<img src="img/main/icons/statistics.png" class="main-menu-ico">
 								<span>   Statistics</span>
 							</a>
@@ -57,7 +57,7 @@
 								<img src="img/main/icons/list.png" class="main-menu-ico">
 								<span>   My downloads</span>
 							</a>
-							<a href="index/profile.php" class="main-menu-a">
+							<a href="#" class="main-menu-a">
 								<img src="img/main/icons/profile.png" class="main-menu-ico">
 								<span>   My profile</span>
 							</a>
