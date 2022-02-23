@@ -9,15 +9,17 @@
     $TYPE =     "";
     $TITLE =    "";
     $HASH =     "";
+    $OUTPUT =   !getenv("SEED_OUTPUT_DIR") ? "/sambashare/" : getenv("SEED_OUTPUT_DIR");
+    $TORRENT_DIR = "../torrents/";
 
     $output = "";
     exec("python3 ../python/torrent.py -g 1 -v " . $_GET["id"], $output);
 
-    $HASH = getTorrentHash($TORRENT);
+    $HASH = getTorrentHash($TORRENT_DIR . $TORRENT);
 
     foreach($output as $line) {
         if(str_contains($line, "FILETYPE"))
-            $TYPE = "/sambashare/" . explode(" ", $line, 2)[1];
+            $TYPE = $OUTPUT . explode(" ", $line, 2)[1];
         if(str_contains($line, "TORRENTNAME"))
             $TITLE = explode(" ", $line, 2)[1];
     }
@@ -28,7 +30,7 @@
 
     $randPort = rand(41413, 51413);
 
-    shell_exec("screen -d -m transmission-cli -w " . $TYPE . " -p " . $randPort . " -f '/torrentfinished.sh' " . $TORRENT . ".torrent");
+    shell_exec("screen -d -m transmission-cli -w " . $TYPE . " -p " . $randPort . " -f '/torrentfinished.sh' " . $TORRENT_DIR . $TORRENT . ".torrent");
 
     $query->close();
 
