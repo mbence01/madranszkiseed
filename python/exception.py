@@ -7,4 +7,4 @@ class LoginCredentialsNotSet(Exception):
 
 class InvalidUserOrPass(Exception):
     def __init__(self):
-        print('Username or password is incorrect')
+        print('Exception: Username or password is incorrect')
