@@ -1,9 +1,9 @@
 <?php
 
 $torrentTypes = array(
-    "xvid_hun",     "Film SD\/HU",
+    "xvid_hun",     "Film SD/HU",
     "xvid",         "Film SD/EN",
-    "dvd_hun",      "Film DVDR\/HU",
+    "dvd_hun",      "Film DVDR/HU",
     "dvd",          "Film DVDR/EN",
     "dvd9_hun",     "Film DVD9/HU",
     "dvd9",         "Film DVD9/EN",
@@ -63,9 +63,12 @@ $torrentTypes = array(
                 echo "<h1>Results:</h1>";
 
                 $value = $_GET["torrentname"] . "|" . $_GET["type"];
-                shell_exec("python3 python/torrent.py -l 1 -v \"" . $value . "\"");
+                $output = shell_exec("python3 python/torrent.py -l 1 -v \"" . $value . "\" 2>&1");
 
-                include_once("python/result.html");
+                if(str_contains($output, "Exception"))
+                    echo "<pre style='color: red;'>" . $output . "</pre>";
+                else
+                    include_once("python/result.html");
             }
             ?>
         </div>
