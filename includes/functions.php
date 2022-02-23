@@ -13,7 +13,7 @@
     }
 
     function alert($text) {
-        echo "<script>alert('".$text."');</script>";
+        echo "<script type='text/javascript'>alert('".$text."');</script>";
     }
 
     function addBox($color, $text) {
