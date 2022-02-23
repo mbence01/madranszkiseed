@@ -34,6 +34,12 @@ apache telepítés [ITT](https://ubuntu.com/tutorials/install-and-configure-apac
 
 Az exportált adatbázis fájl megtalálható a gyökérmappában: db.sql
 
+
+
+A program főmappájában található egy mv_to_root mappa 2 scripttel. Ezt a két fájlt be kell másolni a gép gyökérkönyvtárába
+
+>  sudo mv mv_to_root/* /
+
 ## Környezeti változók
 
  - **NCORE_USER**: nCore.pro felhasználónév
@@ -42,3 +48,11 @@ Az exportált adatbázis fájl megtalálható a gyökérmappában: db.sql
  - **SEED_MYSQL_USER**: mysql felhasználónév
  - **SEED_MYSQL_PASSWORD**: mysql jelszó
  - **SEED_MYSQL_DATABASE**: mysql adatbázis neve
+ - **SEED_OUTPUT_DIR**: torrentek gyökérmappája
+ - **SEED_VIDEO_DIR**: torrentek kimeneti mappája (videók)
+ - **SEED_GAME_DIR**: torrentek kimeneti mappája (játékok)
+ - **SEED_MUSIC_DIR**: torrentek kimeneti mappája (zenék)
+ - **SEED_OTHER_DIR**: torrentek kimeneti mappája (minden más)
+ 
+ Ha a kimeneti mappák nincsenek beállítva, akkor az alapértelmezett értékeket használja a program. (rendre "/sambashare/", "Videos", "Games", "Music", "other/Torrents")
+ Ezeket a mappákat előzetesen létre kell hozni, különben nem fog megfelelően működni a program és nem is ad visszajelzést a hibáról.
