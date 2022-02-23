@@ -34,6 +34,15 @@ inputs = {
     }
 }
 
+dirs = {
+    'video':    os.environ.get('SEED_VIDEO_DIR') or 'Videos',
+    'music':    os.environ.get('SEED_MUSIC_DIR') or 'Music',
+    'game':     os.environ.get('SEED_GAME_DIR')  or 'Games',
+    'other':    os.environ.get('SEED_OTHER_DIR') or 'other/Torrents'
+}
+
+TORRENT_DIR = '../torrents/' # Torrent files will be downloaded here
+
 #Initializing the argument parser
 parser = argparse.ArgumentParser()
 
@@ -64,12 +73,12 @@ def getTorrentType(text):
     type = text[first_pos:end_pos:]
 
     if type in ( 'xvid_hun', 'xvid', 'dvd_hun', 'dvd', 'dvd9_hun', 'dvd9', 'hd_hun', 'hd', 'xvidser_hun', 'xvidser', 'dvdser_hun', 'dvdser', 'hdser_hun', 'hdser' ):
-        return 'Videos'
+        return dirs['video']
     elif type in ( 'mp3_hun', 'mp3', 'lossless_hun', 'lossless' ):
-        return 'Music'
+        return dirs['music']
     elif type in ( 'game_iso', 'game_rip', 'console' ):
-        return 'Games'
-    return 'other/Torrents'
+        return dirs['game']
+    return dirs['other']
 
 def listTorrents(session):
     # -v cmd line argument stands for passing torrent's name and type in NAME|TYPE format
@@ -129,7 +138,7 @@ def downloadTorrent(session):
     get_torrent = session.get(download_link, allow_redirects = True)
 
     # Write .torrent content to a new file
-    with open(torrent_id + '.torrent', 'wb') as torrent_file:
+    with open(TORRENT_DIR + torrent_id + '.torrent', 'wb') as torrent_file:
         torrent_file.write(get_torrent.content)
 
     # Get the torrent file's type and name, then print it
@@ -141,7 +150,7 @@ def downloadTorrent(session):
 
 #main
 with requests.Session() as session:
-    print('> Attempting to login to ncore.pro with credentials:', login_credentials)
+    print('> Attempting to login to ncore.pro with user', login_credentials['username'])
 
     res = session.post(pages['login'], data = inputs['login'])
 
