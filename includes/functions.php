@@ -31,4 +31,27 @@
     function getDay() {
         return date("Y.m.d");
     }
+
+    function getTorrentData($id, $output_dir, &$TYPE, &$TITLE) {
+        $output = "";
+        exec("python3 ../python/torrent.py -g 1 -v " . $id, $output);
+
+        foreach($output as $line) {
+            if(str_contains($line, "FILETYPE"))
+                $TYPE = $output_dir . explode(" ", $line, 2)[1];
+            if(str_contains($line, "TORRENTNAME"))
+                $TITLE = explode(" ", $line, 2)[1];
+        }
+    }
+
+    function getTorrentHash($torrent) {
+        $torrent_hash = "";
+        exec("transmission-show \"" . $torrent . "\"", $torrent_hash);
+
+        foreach($torrent_hash as $line) {
+            if(str_contains($line, "Hash:")) {
+                return explode(" ", trim($line))[1];
+            }
+        }
+    }
 ?>
