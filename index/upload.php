@@ -9,7 +9,16 @@
             <input id="file" style="display: none;" type="file" name="torrentfile" /><br>
             <input type="submit" value="Start download" /></td>
 
-            <p style="color: red;">Az itt feltöltött torrentek mind a SEED_OTHER_DIR (<?php echo "jelenleg: " . getenv("SEED_OTHER_DIR"); ?>) változóban megadott könyvtárba kerülnek!</p>
+            <?php
+
+            $other_dir = "currently not set";
+
+            if(getenv("SEED_OTHER_DIR"))
+                $other_dir = "current value of SEED_OTHER_DIR: " . getenv("SEED_OTHER_DIR");
+
+            ?>
+
+            <p style="color: red;">Torrents uploaded from this page will be moved to the directory that's in the SEED_OTHER_DIR environment variable (<?php echo $other_dir; ?>)</p>
         </form>
     </div>
 </div>
