@@ -12,17 +12,9 @@
     $OUTPUT =   !getenv("SEED_OUTPUT_DIR") ? "/sambashare/" : getenv("SEED_OUTPUT_DIR");
     $TORRENT_DIR = "../torrents/";
 
-    $output = "";
-    exec("python3 ../python/torrent.py -g 1 -v " . $_GET["id"], $output);
+    getTorrentData($_GET["id"], $OUTPUT, $TYPE, $TITLE);
 
     $HASH = getTorrentHash($TORRENT_DIR . $TORRENT);
-
-    foreach($output as $line) {
-        if(str_contains($line, "FILETYPE"))
-            $TYPE = $OUTPUT . explode(" ", $line, 2)[1];
-        if(str_contains($line, "TORRENTNAME"))
-            $TITLE = explode(" ", $line, 2)[1];
-    }
 
     $query = $mysqli->prepare("INSERT INTO downloads(userid, name, filename, hash, path, date, finishdate, status) VALUES(?, ?, ?, ?, ?, CURRENT_TIMESTAMP, NULL, 0)");
     $query->bind_param("dssss", $USER, $TITLE, $TORRENT, $HASH, $TYPE);
@@ -35,15 +27,4 @@
     $query->close();
 
     header("Location: ../index.php?page=downloads");
-
-    function getTorrentHash($torrent) {
-        $torrent_hash = "";
-        exec("transmission-show " . $torrent . ".torrent", $torrent_hash);
-
-        foreach($torrent_hash as $line) {
-            if(str_contains($line, "Hash:")) {
-                return explode(" ", trim($line))[1];
-            }
-        }
-    }
 ?>
