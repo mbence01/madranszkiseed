@@ -7,33 +7,32 @@
 	if($_SERVER["REQUEST_METHOD"] == "POST") {
 		if(isset($_POST["torrentname"]) AND strlen($_POST["torrentname"]) > 0 AND strlen($_POST["torrentname"]) <= 50 AND strpos($_POST["torrentname"], "_") === false) {
 			if(strlen($_FILES["torrentfile"]["name"]) != 0) {
+                $_POST["torrentname"] = str_replace(" ", "_", $_POST["torrentname"]);
 				$fname = "../torrents/" . $_SESSION["id"] . "_" . $_POST["torrentname"] . ".torrent";
-				$fname_from_root = "torrents/" . $_SESSION["id"] . "_" . $_POST["torrentname"] . ".torrent";
 			
 				if(strtolower(pathinfo($fname, PATHINFO_EXTENSION)) === "torrent") {
 					if(!file_exists($fname)) {
 						if(move_uploaded_file($_FILES["torrentfile"]["tmp_name"], $fname)) {
-							$torrent_name = $_SESSION["id"] . "_" . $_POST["torrentname"];
-							
-							$insert_torrent_data = $mysqli->query("INSERT INTO
-																	downloads(id, userid, name, torrentname, date, finishdate, status)
-																   VALUES(
-																		0,
-																		".$_SESSION["id"].",
-																		'".$_POST["torrentname"]."',
-																		'".$fname_from_root."',
-																		CURRENT_TIMESTAMP,
-																		CURRENT_TIMESTAMP,
-																		0);");
-							if($insert_torrent_data !== false) {
-								$output = shell_exec("./torrent.sh " . $torrent_name . " /sambashare/madranszkiSeeds/torrents/" . $torrent_name . ".torrent");
-								alert("./torrent.sh " . $torrent_name . " /sambashare/madranszkiSeeds/torrents/" . $torrent_name . ".torrent");
-								alert("Torrent has successfully been uploaded. Download will start soon...");
-								redirect("mydownloads.php");
-							} else {
-								alert("An error has occurred during data save.");
-								goBack();
-							}
+							$HASH = getTorrentHash($fname);
+                            $PATH = !getenv("SEED_OUTPUT_DIR") ? "/sambashare/other/Torrents" : (getenv("SEED_OUTPUT_DIR") . getenv("SEED_OTHER_DIR"));
+
+							$query = $mysqli->prepare("INSERT INTO downloads(userid, name, filename, hash, path, date, finishdate, status)
+																   VALUES(?, ?, ?, ?, ?, CURRENT_TIMESTAMP, NULL, 0);");
+                            $query->bind_param("dssss", $_SESSION["id"], $_POST["torrentname"], $fname, $HASH, $PATH);
+
+                            if($query->execute() !== false) {
+								$query->close();
+
+                                $randPort = rand(41413, 51413);
+
+                                shell_exec("screen -d -m transmission-cli -w " . $PATH . " -p " . $randPort . " -f '/torrentfinished.sh' " . $fname);
+                                header("Location: ../index.php?page=downloads");
+                            } else {
+                                $query->close();
+
+                                alert("An error has occurred during data save.");
+                                goBack();
+                            }
 						} else {
 							alert("An error has occurred during file upload. Try it later!");
 							goBack();
