@@ -12,19 +12,22 @@ A projekt jelenleg fejlesztés alatt áll, így a bal oldali menüből nem minde
 A program megfelelő működéséhez szükséges további programok:
 
  - transmission-cli
- - python3
+ - python3 (és pip)
  - screen
  - mysql server
  - php-mysqli extension
  - valamilyen webszerver
+ - python modulok: os, sys, argparse, requests, mysql-connector-python
 
    
 
 >  sudo apt-get update
 
->  sudo apt-get install transmission-cli python3 screen php-mysqli 
+>  sudo apt-get install transmission-cli python3 python3-pip screen php-mysqli 
 
 >  sudo apt-get install apache2 mysql-server
+
+>  sudo pip install mysql-connector-python
 
 mysql-server telepítés [ITT](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04)
 
