@@ -1,3 +1,4 @@
 .idea
 *.torrent
 python/result.html
+python/__pycache__
