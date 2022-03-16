@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="../css/upload-search.css" />
-<script type="text/javascript" src="../js/uploadfile.js"></script>
+<link rel="stylesheet" href="css/upload-search.css" />
+<script type="text/javascript" src="js/uploadfile.js"></script>
 
 <div class="row">
     <div class="col-xs-12 main-div">

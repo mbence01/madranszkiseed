@@ -36,7 +36,7 @@ $torrentTypes = array(
 
 ?>
 
-<link rel="stylesheet" href="../css/upload-search.css" />
+<link rel="stylesheet" href="css/upload-search.css" />
 
 <div class="row">
     <div class="col-xs-12 main-div" style="height: 1000%;">
