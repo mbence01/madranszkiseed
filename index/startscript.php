@@ -14,7 +14,7 @@
 
     getTorrentData($_GET["id"], $OUTPUT, $TYPE, $TITLE);
 
-    $HASH = getTorrentHash($TORRENT_DIR . $TORRENT);
+    $HASH = getTorrentHash($TORRENT_DIR . $TORRENT . ".torrent");
 
     $query = $mysqli->prepare("INSERT INTO downloads(userid, name, filename, hash, path, date, finishdate, status) VALUES(?, ?, ?, ?, ?, CURRENT_TIMESTAMP, NULL, 0)");
     $query->bind_param("dssss", $USER, $TITLE, $TORRENT, $HASH, $TYPE);
