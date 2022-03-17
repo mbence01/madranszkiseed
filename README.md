@@ -39,6 +39,10 @@ Az exportált adatbázis fájl megtalálható a gyökérmappában: db.sql
 
 
 
+A program főmappájába létre kell hozni egy torrents mappát
+
+> mkdir torrents
+
 A program főmappájában található egy mv_to_root mappa 2 scripttel. Ezt a két fájlt be kell másolni a gép gyökérkönyvtárába
 
 >  sudo mv mv_to_root/* /
