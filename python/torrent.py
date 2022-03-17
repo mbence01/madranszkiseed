@@ -138,7 +138,7 @@ def downloadTorrent(session):
     get_torrent = session.get(download_link, allow_redirects = True)
 
     # Write .torrent content to a new file
-    with open(TORRENT_DIR + torrent_id + '.torrent', 'wb') as torrent_file:
+    with open(TORRENT_DIR + torrent_id + '.torrent', 'wb+') as torrent_file:
         torrent_file.write(get_torrent.content)
 
     # Get the torrent file's type and name, then print it
