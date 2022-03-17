@@ -43,6 +43,10 @@ dirs = {
 
 TORRENT_DIR = '../torrents/' # Torrent files will be downloaded here
 
+# Result.html will be created here
+# Change this to 'result.html' to use this program from CLI
+RESULT_FILE_PATH = '../python/result.html'
+
 #Initializing the argument parser
 parser = argparse.ArgumentParser()
 
@@ -105,7 +109,7 @@ def listTorrents(session):
     # End position of torrent list container HTML 
     last_pos  = response_text.find('<div class="lista_lab">')
     
-    with open('python/result.html', 'w') as f:
+    with open(RESULT_FILE_PATH, 'w') as f:
         # Import the official nCore css file
         f.writelines('<link rel="stylesheet" href="css/ncore.css">')
 
